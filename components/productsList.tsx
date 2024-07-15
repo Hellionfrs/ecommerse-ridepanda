@@ -1,5 +1,5 @@
 import { getProducts } from "@/app/(products)/actions";
-import Product from "./product";
+import ProductCard from "./productCard";
 
 export default async function ProductsList() {
   const products = await getProducts();
@@ -7,7 +7,7 @@ export default async function ProductsList() {
   return (
     <>
       {products.map((product) => (
-        <Product key={product.id} data={product} />
+        <ProductCard key={product.id} data={product} />
       ))}
     </>
   );
