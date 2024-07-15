@@ -7,4 +7,4 @@ export type Product = {
   image: string;
 };
 
-export type Products = Array<Product>;
+export type Products = Array<Product> | [];

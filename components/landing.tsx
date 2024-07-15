@@ -5,11 +5,10 @@ import ProductsList, { ProductsListSkeleton } from "@/components/productsList";
 export default function Landing() {
   return (
     <main className="flex-1 py-8">
-      <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4 md:p-6">
+      
         <Suspense fallback={<ProductsListSkeleton />}>
           <ProductsList />
         </Suspense>
-      </div>
     </main>
   );
 }
