@@ -1,8 +1,8 @@
-# Products App
+# [Products App](https://ecommerse-ridepanda.vercel.app)
 
 ## Overview
 
-This project is a simple e-commerce application that displays a list of products. It includes features such as pagination, search, and user authentication using Clerk. The application is built with Next.js, TypeScript, and utilizes ShadcnUI for UI components.
+[This project](https://ecommerse-ridepanda.vercel.app) is a simple e-commerce application that displays a list of products. It includes features such as pagination, search, and user authentication using Clerk. The application is built with Next.js, TypeScript, and utilizes ShadcnUI for UI components. 
 
 ## Features
 
@@ -11,6 +11,7 @@ This project is a simple e-commerce application that displays a list of products
 - **Authentication**: User authentication is implemented using Clerk. Only authenticated users can access the product routes.
 - **Landing Page**: A basic landing page is provided with login and register buttons for unauthenticated users.
 - **Protected Routes**: Unauthenticated users attempting to access protected routes are redirected to the login/register page.
+- **Deployment**: The project is deployed on [Vercel](https://ecommerse-ridepanda.vercel.app) for easy hosting and deployment.
 
 ## Assumptions
 
@@ -98,3 +99,4 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 ### License
 
 This project is powered by Clerk and ShadcnUI. 
+Enjoy it at [ecommerse-ridepanda.vercel.app](https://ecommerse-ridepanda.vercel.app)
