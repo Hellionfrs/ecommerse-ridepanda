@@ -1,16 +1,20 @@
 "use client";
 
-import { getProducts } from "@/app/(products)/actions";
-import ProductCard from "./productCard";
 import { useEffect, useState } from "react";
+
+import ProductCard from "./productCard";
+import { getProducts } from "@/app/(products)/actions";
 import { Products } from "@/app/(products)/definitions";
 import { Button } from "./ui/button";
+import { useSearch } from "@/providers/searchContext";
 
 export default function ProductsList() {
   const [products, setProducts] = useState<Products>([]);
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(5); // Default limit per page
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const { query } = useSearch();
 
   useEffect(() => {
     setIsLoading(true);
@@ -19,11 +23,18 @@ export default function ProductsList() {
       setIsLoading(false);
     });
   }, [limit]);
+  
+  // Filter products based on the query
+  const filteredProducts = products.filter((product) => {
+    if (query === "") return true;
+    return product.title.toLowerCase().includes(query.toLowerCase());
+  });
 
-  {
-    /* limit apply to the first page */
-  }
-  const paginatedProducts = products.slice((page - 1) * limit, page * limit);
+  // Get products for the current page
+  const paginatedProducts = filteredProducts.slice(
+    (page - 1) * limit,
+    page * limit
+  );
 
   const handleNextPage = () => setPage((prevPage) => prevPage + 1);
   const handlePrevPage = () => setPage((prevPage) => Math.max(prevPage - 1, 1));
@@ -32,6 +43,7 @@ export default function ProductsList() {
     setLimit(parseInt(e.target.value));
     setPage(1); // Reset to the first page when the limit changes
   };
+
   return (
     <>
       <div className="flex-1 py-8">
@@ -40,7 +52,9 @@ export default function ProductsList() {
             Previous
           </Button>
           <div className="flex items-center gap-2">
-            <span>Showing {paginatedProducts.length} of {products.length}</span>
+            <span>
+              Showing {paginatedProducts.length * page} of {filteredProducts.length}
+            </span>
             <select
               className="w-12 rounded p-2"
               onChange={handleLimitChange}
