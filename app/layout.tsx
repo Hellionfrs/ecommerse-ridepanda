@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import { SearchProvider } from "@/providers/searchContext";
 import Footer from "@/components/footer";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,16 +19,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <SearchProvider>
-          <div className="flex flex-col min-h-screen">
-            <Navbar />
-            {children}
-            <Footer />
-          </div>
-        </SearchProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <SearchProvider>{children}</SearchProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

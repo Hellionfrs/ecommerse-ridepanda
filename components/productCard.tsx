@@ -23,7 +23,7 @@ export default function ProductCard({ data }: { data: Product }) {
       <CardHeader className="p-4">
         <h3 className="text-lg font-bold">{title}</h3>
       </CardHeader>
-      <Link href={`/${id}`} className="flex justify-center">
+      <Link href={`/products/${id}`} className="flex justify-center">
         <Image
           src={image}
           alt={title}
