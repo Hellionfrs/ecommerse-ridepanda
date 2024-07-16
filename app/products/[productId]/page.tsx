@@ -1,10 +1,10 @@
-import Product from "@/components/product";
+import Product, { ProductSkeleton } from "@/components/product";
 import { Suspense } from "react";
 
 export default function Page({ params }: { params: { productId: string } }) {
   const { productId } = params;
   return (
-    <Suspense fallback={<h1>Loading product...</h1>}>
+    <Suspense fallback={<ProductSkeleton />}>
       <Product id={productId} />
     </Suspense>
   );
