@@ -49,6 +49,7 @@ export default function Hero({ user }: { user: boolean }) {
             width="500"
             height="500"
             alt="Panda Emporium Hero"
+            priority={true}
             className="max-w-full h-auto"
           />
         </div>
