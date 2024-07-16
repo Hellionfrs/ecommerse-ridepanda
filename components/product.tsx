@@ -3,6 +3,7 @@ import { Product as ProductType } from "@/app/products/definitions";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { Skeleton } from "./ui/skeleton";
 
 export default async function Product({ id }: { id: string }) {
   const { image, title, price, category, description } = await getProductById(
@@ -17,7 +18,7 @@ export default async function Product({ id }: { id: string }) {
           width={400}
           height={400}
           priority={true}
-          className="w-auto h-[400px] object-cover md:h-[600px]" 
+          className="w-auto h-[400px] object-cover md:h-[600px]"
         />
       </div>
       <div className="grid gap-4 md:gap-10 items-start">
@@ -74,5 +75,32 @@ function StarIcon(props: React.SVGProps<SVGSVGElement>) {
     >
       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
     </svg>
+  );
+}
+
+export function ProductSkeleton() {
+  return (
+    <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-7xl mt-6 px-4 mx-auto py-6">
+      <Skeleton className="w-300px h-[300px] md:h-[400px] md:w-[400px] "></Skeleton> 
+      <div className="grid gap-4 md:gap-10 items-start">
+        <Skeleton className="w-[200px] h-6  md:h-8"></Skeleton>
+        <Skeleton className="w-[180x] h-6 md:h-8"></Skeleton>
+        <Skeleton className="w-[180x] h-6 md:h-8"></Skeleton>
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <span>Category:</span>
+          <Skeleton className="w-full h-4 rounded-md"></Skeleton>
+        </div>
+        <div className="grid gap-2">
+          <div className="flex items-center gap-4">
+            <span className="text-4xl font-bold">$ 19.99</span>
+            <Button size="lg">Add to Cart</Button>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <span>Category:</span>
+            <Skeleton className="w-full h-4 rounded-md"></Skeleton>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
