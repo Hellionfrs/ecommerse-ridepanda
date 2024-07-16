@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { Skeleton } from "./ui/skeleton";
+import blur from "@/app/assets/blur.png";
 
 export default async function Product({ id }: { id: string }) {
   const { image, title, price, category, description } = await getProductById(
@@ -18,6 +19,10 @@ export default async function Product({ id }: { id: string }) {
           width={400}
           height={400}
           priority={true}
+          blurDataURL={
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
+          }
+          placeholder="blur"
           className="w-auto h-[400px] object-cover md:h-[600px]"
         />
       </div>
@@ -81,13 +86,12 @@ function StarIcon(props: React.SVGProps<SVGSVGElement>) {
 export function ProductSkeleton() {
   return (
     <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-7xl mt-6 px-4 mx-auto py-6">
-      <Skeleton className="w-300px h-[300px] md:h-[400px] md:w-[400px] "></Skeleton> 
+      <Skeleton className="w-300px h-[300px] md:h-[400px] md:w-[400px] "></Skeleton>
       <div className="grid gap-4 md:gap-10 items-start">
         <Skeleton className="w-[200px] h-6  md:h-8"></Skeleton>
         <Skeleton className="w-[180x] h-6 md:h-8"></Skeleton>
         <Skeleton className="w-[180x] h-6 md:h-8"></Skeleton>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <span>Category:</span>
           <Skeleton className="w-full h-4 rounded-md"></Skeleton>
         </div>
         <div className="grid gap-2">
