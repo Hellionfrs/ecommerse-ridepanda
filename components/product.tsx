@@ -1,11 +1,13 @@
-import { getProductById } from "@/app/(products)/[productId]/actions";
-import { Product as ProductType } from "@/app/(products)/definitions";
+import { getProductById } from "@/app/products/[productId]/actions";
+import { Product as ProductType } from "@/app/products/definitions";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
 
 export default async function Product({ id }: { id: string }) {
-  const {image, title, price, category, description} = await getProductById(id);
+  const { image, title, price, category, description } = await getProductById(
+    id
+  );
   return (
     <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-6xl px-4 mx-auto py-6">
       <div className="flex flex-1 justify-center self-center">
@@ -33,10 +35,7 @@ export default async function Product({ id }: { id: string }) {
           </div>
         </div>
         <div className="grid gap-4 text-sm leading-loose">
-          <p>
-            {description}
-          </p>
-        
+          <p>{description}</p>
         </div>
         <div className="grid gap-2">
           <div className="flex items-center gap-4">
@@ -58,7 +57,6 @@ export default async function Product({ id }: { id: string }) {
     </div>
   );
 }
-
 
 function StarIcon(props: React.SVGProps<SVGSVGElement>) {
   return (

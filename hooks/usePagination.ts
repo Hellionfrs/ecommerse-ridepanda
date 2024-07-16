@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Products } from "@/app/(products)/definitions";
+import { Products } from "@/app/products/definitions";
 import { useSearch } from "@/providers/searchContext";
-import { getProducts } from "@/app/(products)/actions";
+import { getProducts } from "@/app/products/actions";
 
 export function usePagination() {
   const [products, setProducts] = useState<Products>([]);
   const [page, setPage] = useState<number>(1);
-  const [limit, setLimit] = useState<number>(5); // Default limit per page
+  const [limit, setLimit] = useState<number>(5);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const { query } = useSearch();
 
