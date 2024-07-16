@@ -9,15 +9,15 @@ export default async function Product({ id }: { id: string }) {
     id
   );
   return (
-    <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-6xl px-4 mx-auto py-6">
+    <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-7xl mt-6 px-4 mx-auto py-6">
       <div className="flex flex-1 justify-center self-center">
         <Image
           src={image}
           alt={title}
-          width={800}
-          height={800}
+          width={400}
+          height={400}
           priority={true}
-          className="w-auto h-64 object-cover"
+          className="w-auto h-[400px] object-cover md:h-[600px]" 
         />
       </div>
       <div className="grid gap-4 md:gap-10 items-start">
