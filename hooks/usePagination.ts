@@ -9,14 +9,19 @@ export function usePagination() {
   const [limit, setLimit] = useState<number>(5);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const { query } = useSearch();
-
+  
   useEffect(() => {
     setIsLoading(true);
     getProducts().then((products) => {
       setProducts(products);
       setIsLoading(false);
     });
-  }, [limit]);
+  }, []);
+
+  // Reset page when the query changes 
+  useEffect(() => {
+    setPage(1);
+  }, [query]);
 
   // Filter products based on the query
   const filteredProducts = products.filter((product) => {

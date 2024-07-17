@@ -7,7 +7,6 @@ export default function Header({ user }: { user: boolean }) {
     <header className="bg-primary text-primary-foreground px-4 py-2 lg:px-6 flex items-center justify-between ">
       <Link href="#" className="flex items-center gap-2" prefetch={false}>
         <PawPrint className="h-6 w-6" />
-        <span className="font-bold text-lg">Panda Emporium</span>
       </Link>
       <nav className="flex items-center gap-4 sm:gap-6">
         {user ? (
