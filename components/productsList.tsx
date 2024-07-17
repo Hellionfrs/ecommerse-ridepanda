@@ -15,7 +15,7 @@ export default function ProductsList() {
     handlePrevPage,
     handleLimitChange,
   } = usePagination();
-
+  
   return (
     <>
       <div className="flex-1 py-8">
