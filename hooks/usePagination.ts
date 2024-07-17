@@ -16,7 +16,7 @@ export function usePagination() {
       setProducts(products);
       setIsLoading(false);
     });
-  }, [limit]);
+  }, []);
 
   // Filter products based on the query
   const filteredProducts = products.filter((product) => {

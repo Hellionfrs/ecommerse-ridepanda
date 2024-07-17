@@ -18,6 +18,7 @@ export const PaginationControls: React.FC<PaginationControlsProps> = ({
   onNextPage,
   onLimitChange,
 }) => {
+  const productPerPage = limit * page >= totalProducts ? totalProducts : limit * page;
   return (
     <div className="flex justify-between p-4 md:p-6">
       <Button onClick={onPrevPage} disabled={page === 1}>
@@ -25,7 +26,7 @@ export const PaginationControls: React.FC<PaginationControlsProps> = ({
       </Button>
       <div className="flex items-center gap-2">
         <span>
-          Showing {limit * page} of {totalProducts}
+          Showing {productPerPage} of {totalProducts}
         </span>
         <select
           className="w-12 rounded p-2"
