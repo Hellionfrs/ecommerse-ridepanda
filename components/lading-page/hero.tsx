@@ -6,7 +6,7 @@ export default function Hero({ user }: { user: boolean }) {
   return (
     <section className="w-full flex-1 pt-12 md:pt-24 lg:pt-32 border-y">
       <div className="container grid max-w-[1300px] gap-4 px-4 sm:px-6 md:px-10 md:grid-cols-2 md:gap-16">
-        <div className="flex flex-col justify-center items-center gap-2 sm:items-start">
+        <div className="flex flex-col text-center justify-center items-center gap-2 sm:items-start sm:text-left">
           <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
             Discover the Panda-monium at RidePanda Ecommerse
           </h1>
